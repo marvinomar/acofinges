@@ -1,0 +1,179 @@
+{% extends 'SonataAdminBundle:CRUD:edit.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+    .select2-container-multi{
+        width: 100% !important;
+    }
+
+    </style>
+                    <!--Agregando css de el wizard-->
+                <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+                <link rel="stylesheet" href="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/bootstrap/css/bootstrap.min.css') }}" type="text/css" media="all" />
+                <link rel="stylesheet" href="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/font-awesome/css/font-awesome.min.css') }}" type="text/css" media="all" />
+                <link rel="stylesheet" href="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/css/form-elements.css') }}" type="text/css" media="all" />
+                <link rel="stylesheet" href="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/css/style.css') }}" type="text/css" media="all" />
+{% endblock %}
+{% block tituloPantalla %}
+{% if app.user.getId() is defined %}
+<div class="col-md-12" style="text-align:center;">
+    <h3>Evaluacion LOL</h3>
+</div>
+{% endif %}
+{% endblock tituloPantalla %}
+{% if app.user.getId() is  not defined %}
+    {% block sonata_breadcrumb %}
+    {% endblock sonata_breadcrumb %}
+{% endif %}
+
+{% block sonata_tab_content %}
+  {% block information%}
+     <div class="alert alert-info" role="alert">* Campos obligatorios</div>
+  {% endblock information%}
+ <script type="text/javascript">
+</script>
+
+
+{% for name, form_group in admin.formgroups %}
+
+     <div class="{{ form_group.class|default('col-md-12') }}">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h4 class="box-title">
+                        {{ admin.trans(name, {}, form_group.translation_domain)  }}
+                    </h4>
+                </div>
+        <!-- Iconos de el wizard -->
+        <link rel="shortcut icon" href="bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-57-precomposed.png">
+
+
+         <!-- Javascript -->
+
+        {#<script src="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/js/jquery-1.11.1.min.js') }}" type="text/javascript"></script>#} <!--Da clavo-->
+        <script src="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/js/jquery.backstretch.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/js/retina-1.1.0.min.js') }}" type="text/javascript"></script>
+        {#<script src="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/js/scripts.js') }}" type="text/javascript"></script>#}     
+        
+                <!-- Top content -->
+        <div class="top-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
+                    	<form role="form" action="" method="post" class="f1">
+
+                    		<h3>Register To Our App</h3>
+                    		<p>Fill in the form to get instant access</p>
+                    		<div class="f1-steps">
+                    			<div class="f1-progress">
+                    			    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 16.66%;"></div>
+                    			</div>
+                    			<div class="f1-step active">
+                    				<div class="f1-step-icon"><i class="fa fa-user"></i></div>
+                    				<p>about</p>
+                    			</div>
+                    			<div class="f1-step">
+                    				<div class="f1-step-icon"><i class="fa fa-key"></i></div>
+                    				<p>account</p>
+                    			</div>
+                    		    <div class="f1-step">
+                    				<div class="f1-step-icon"><i class="fa fa-twitter"></i></div>
+                    				<p>social</p>
+                    			</div>
+                    		</div>
+                    		
+                    		<fieldset>
+                    		    <h4>Tell us who you are:</h4>
+                    			<div class="form-group">
+                    			    <label class="sr-only" for="f1-first-name">First name</label>
+                                    <input type="text" name="f1-first-name" placeholder="First name..." class="f1-first-name form-control" id="f1-first-name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-last-name">Last name</label>
+                                    <input type="text" name="f1-last-name" placeholder="Last name..." class="f1-last-name form-control" id="f1-last-name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-about-yourself">About yourself</label>
+                                    <textarea name="f1-about-yourself" placeholder="About yourself..." 
+                                    	                 class="f1-about-yourself form-control" id="f1-about-yourself"></textarea>
+                                </div>
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <h4>Set up your account:</h4>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-email">Email</label>
+                                    <input type="text" name="f1-email" placeholder="Email..." class="f1-email form-control" id="f1-email">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-password">Password</label>
+                                    <input type="password" name="f1-password" placeholder="Password..." class="f1-password form-control" id="f1-password">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-repeat-password">Repeat password</label>
+                                    <input type="password" name="f1-repeat-password" placeholder="Repeat password..." 
+                                                        class="f1-repeat-password form-control" id="f1-repeat-password">
+                                </div>
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="button" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <h4>Social media profiles:</h4>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-facebook">Facebook</label>
+                                    <input type="text" name="f1-facebook" placeholder="Facebook..." class="f1-facebook form-control" id="f1-facebook">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-twitter">Twitter</label>
+                                    <input type="text" name="f1-twitter" placeholder="Twitter..." class="f1-twitter form-control" id="f1-twitter">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-google-plus">Google plus</label>
+                                    <input type="text" name="f1-google-plus" placeholder="Google plus..." class="f1-google-plus form-control" id="f1-google-plus">
+                                </div>
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="submit" class="btn btn-submit">Submit</button>
+                                </div>
+                            </fieldset>
+                    		 		
+				            {#<div class="box{% if loop.first %} in{% endif %}" id="{{ admin.uniqid }}_{{ loop.index }}">#}
+				                <div class="box-body">
+				                    <div class="sonata-ba-collapsed-fields">
+				                        {% if form_group.description != false %}
+				                            <p>{{ form_group.description|raw }}</p>
+				                        {% endif %}
+				                        {% for field_name in form_group.fields %}
+				                            {% if admin.formfielddescriptions[field_name] is defined %}
+				                                    {{ form_row(form[field_name])}}
+				                            {% endif %}
+				                        {% endfor %}
+				                    </div>
+				                </div>
+				            {#</div>#}
+
+                    	</form>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+
+            </div>
+        </div>
+{% endfor %}
+{% endblock %}
+
+{% block formactions %}
+
+{% endblock formactions %}

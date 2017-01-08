@@ -1,0 +1,88 @@
+html, body {
+    margin:0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    overflow-x: initial !important;
+}
+
+#wrapper {
+	min-height:100%;
+	position:relative;
+    background-color: #BEBEBE;
+
+    /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ffffff), to(#f8f8f8));
+    /* Safari 5.1+, Chrome 10+ */
+    background: -webkit-radial-gradient(circle, #ffffff, #f8f8f8);
+    /* Firefox 3.6+ */
+    background: -moz-radial-gradient(circle, #ffffff, #f8f8f8);
+    /* IE 10 */
+    background: -ms-radial-gradient(circle, #ffffff, #f8f8f8);
+}
+
+div.header {
+    background-color: #0892D0 !important;
+}
+
+.footer {
+    background-color: #fafafa !important;
+    border: 1px solid #dfdfdf;
+    box-shadow: inset 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.form-box {
+    width: 425px !important;
+    height: 100% !important;
+    margin: 90px auto 0 auto;
+    padding-bottom: 35px;
+}
+
+.page {
+    min-width:100%;
+    min-height:100%;
+}
+
+.page-footer {
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    color: whiteSmoke;
+    height: 29px;
+    line-height: 29px;
+    text-align: right;
+    padding: 0 40px 0 30px;
+    font-weight:bold;
+
+    background-color: #9BDDFF;
+    /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, left top, right top, from(#9BDDFF), to(#062A78));
+    /* Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(left, #9BDDFF, #062A78);
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(left, #9BDDFF, #062A78);
+    /* IE 10 */
+    background: -ms-linear-gradient(left, #9BDDFF, #062A78);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(left, #9BDDFF, #062A78);
+}
+
+.page-footer .dtic-footer {
+    margin-right: 7px;
+    height: 17px;
+}
+.footer .btn {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: bold !important;
+    width: auto !important;
+    padding: 5px 10px !important;
+}
+
+@media (max-width: 891px) {
+    .banner {
+        width:100%;
+    }
+}

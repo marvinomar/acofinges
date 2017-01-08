@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}MINSAL:DISAM{% endblock %}</title>
+        {% block stylesheets %}
+            <!-- css of adminLTE -->
+            <link rel="stylesheet" href="/bundles/applicationcore/bootstrap/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/bundles/applicationcore/AdminLTE/css/font-awesome.min.css">
+            <link rel="stylesheet" href="/bundles/applicationcore/AdminLTE/css/ionicons.min.css">
+            <link rel="stylesheet" href="/bundles/applicationcore/AdminLTE/css/AdminLTE.css">
+            <!-- css footer -->
+            <link rel="stylesheet" href="/bundles/applicationcore/css/corelogin.css">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="/bundles/applicationcore/images/escudo.png" />
+    </head>
+    <body>
+        {% block body %}
+            <center style="background-color: #CEE9F3 !important;"><img class="banner" src="/bundles/applicationcore/images/banner.png" alt="Ministerio de Salud banner"></center>
+
+            <center><h1>Sistema Integral de Servicios de Salud Ambiental</h1></center>
+            
+            <!-- Info - Welcome -->    
+            <div class="pad margin no-print">
+                <div class="alert alert-info" style="margin-bottom: 0!important;">
+                    <i class="fa fa-info"></i>
+                    <b>Bienvenido, se encuentra en el Sistema Integral de Servicios de Salud Ambiental.
+                       Por favor seleccione el servicio al que desea acceder:</b>
+                </div>
+            </div>  
+
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <!-- small box -->
+                    <div class="small-box bg-orange">
+                        <div class="inner">
+                            <h3>
+                                Sistema
+                            </h3>
+                            <h4>
+                                Alimentos y Bebidas
+                            </h4>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-at"></i>
+                        </div>                                
+                        <a href="{{ urlModule ? path("sonata_user_admin_security_login",{"_moduleSelection":urlModule.module1 }) : '#' }}" class="small-box-footer">
+                            Ir a <i class="fa fa-arrow-circle-right"></i>
+                        </a>                        
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-md-3 ">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>
+                                Sistema
+                            </h3>
+                            <h4>
+                                Control de Alcoholes 
+                            </h4>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-waterdrop"></i>
+                        </div>
+                        <a href="{{ urlModule ? path("sonata_user_admin_security_login",{"_moduleSelection":urlModule.module2 }) : '#' }}" class="small-box-footer">
+                            Ir a <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-md-3">
+                    <!-- small box -->
+                    <div class="small-box bg-purple">
+                        <div class="inner">
+                            <h3>
+                                Sistema
+                            </h3>
+                            <h4>
+                                Dictamen Tecnico
+                            </h4>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-beaker"></i>
+                        </div>
+                        <a href="{{ urlModule ? path("sonata_user_admin_security_login",{"_moduleSelection":urlModule.module3 }) : '#' }}" class="small-box-footer">
+                            Ir a <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+            </div><!-- /.row -->
+                                                                        
+            <div class="page-footer">
+                <img class="dtic-footer" src="{{ asset("bundles/applicationcore/images/dtic.png") }}" alt="dtic"/>Direcci&oacute;n de Tecnolog&iacute;as de Informaci&oacute;n y Comunicaciones - Ministerio de Salud
+            </div>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
