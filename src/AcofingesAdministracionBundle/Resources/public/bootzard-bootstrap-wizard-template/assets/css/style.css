@@ -130,7 +130,8 @@ ul.navbar-nav {
 
 .f1-buttons { text-align: right; }
 
-.f1 .input-error { border-color: #f35b3f; }
+.f1 .input-error { border-color: #f35b3f;  border: 1px solid #f35b3f;}
+
 
 
 

@@ -40,7 +40,6 @@ jQuery(document).ready(function() {
     
     $('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea').on('focus', function() {
     	$(this).removeClass('input-error');
-        $('input[name=tipo]').parent().parent().removeClass('input-error');
     });
     
     // next step
@@ -53,7 +52,7 @@ jQuery(document).ready(function() {
     	
     	// fields validation
     	parent_fieldset.find('input[type="text"], input[type="password"], textarea').each(function() {
-    		if( $(this).val() == "") {
+    		if( $(this).val() == "" ) {
     			$(this).addClass('input-error');
     			next_step = false;
     		}
@@ -61,14 +60,6 @@ jQuery(document).ready(function() {
     			$(this).removeClass('input-error');
     		}
     	});
-                // fields validation
-            if (!parent_fieldset.find('input[name=tipo]:checked').val() ) {
-                $('input[name=tipo]').parent().parent().addClass('input-error');
-                next_step = false;
-            }
-            else {
-                $('input[name=tipo]').parent().parent().removeClass('input-error');
-            }
     	// fields validation
     	
     	if( next_step ) {
@@ -108,7 +99,7 @@ jQuery(document).ready(function() {
     $('.f1').on('submit', function(e) {
     	
     	// fields validation
-    	$(this).find('input[type="text"], input[type="password"], textarea, input[type="radio"],').each(function() {
+    	$(this).find('input[type="text"], input[type="password"], textarea').each(function() {
     		if( $(this).val() == "" ) {
     			e.preventDefault();
     			$(this).addClass('input-error');
