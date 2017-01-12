@@ -38,9 +38,9 @@ jQuery(document).ready(function() {
     */
     $('.f1 fieldset:first').fadeIn('slow');
     
-    $('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea').on('focus', function() {
+    $('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea, .f1 input[type="radio"]').on('focus', function() {
     	$(this).removeClass('input-error');
-        $('input[name=tipo]').parent().parent().removeClass('input-error');
+        $('input[name=tipo]').parent().removeClass('input-error');
     });
     
     // next step
@@ -52,6 +52,7 @@ jQuery(document).ready(function() {
     	var progress_line = $(this).parents('.f1').find('.f1-progress-line');
     	
     	// fields validation
+        // 
     	parent_fieldset.find('input[type="text"], input[type="password"], textarea').each(function() {
     		if( $(this).val() == "") {
     			$(this).addClass('input-error');
@@ -61,14 +62,64 @@ jQuery(document).ready(function() {
     			$(this).removeClass('input-error');
     		}
     	});
-                // fields validation
+        if(current_active_step.attr('id')=='paso1'){
             if (!parent_fieldset.find('input[name=tipo]:checked').val() ) {
-                $('input[name=tipo]').parent().parent().addClass('input-error');
+                $('input[name=tipo]').parent().addClass('input-error');
                 next_step = false;
             }
             else {
-                $('input[name=tipo]').parent().parent().removeClass('input-error');
+                $('input[name=tipo]').parent().removeClass('input-error');
             }
+
+     }
+     if(current_active_step.attr('id')=='paso2'){
+        /*Agregando validacion de edad*/
+        if (parent_fieldset.find('input[id=f1-edad]').val()> 65 ) {
+                BootstrapDialog.show({
+                title: '<h4>Advertencia</h4>',
+                message: '<h5 class="text-danger">No aplica por condiciones de asegurabilidad, la edad máxima debe de ser 65 años. ¿Podemos ayudarle? Contáctenos al 2561-2400</h5>',
+                type: BootstrapDialog.TYPE_DANGER,
+                buttons: [{
+                label: 'Ok',
+                cssClass: 'btn-danger btn-previous',
+                action: function(dialogItself){
+                    dialogItself.close();
+                }
+            }]
+            });
+            return false;
+         }
+     }   
+        if(current_active_step.attr('id')=='paso3'){
+            if (!parent_fieldset.find('input[name=empleo]:checked').val() ) {
+                $('input[name=empleo]').parent().addClass('input-error');
+                next_step = false;
+            }
+            else {
+                $('input[name=empleo]').parent().removeClass('input-error');
+            }
+        }
+        if(current_active_step.attr('id')=='paso4'){
+            if (!parent_fieldset.find('input[name=ingresos]:checked').val() ) {
+                $('input[name=ingresos]').parent().addClass('input-error');
+                next_step = false;
+            }
+            else {
+                $('input[name=ingresos]').parent().removeClass('input-error');
+            }
+            /*Realizando cálculos*/
+            if (parent_fieldset.find('input[id=sal]:checked').val() ) {
+                  $("#td1").html($("input[name='f1-ingresos']").val()*12);
+            }else if(parent_fieldset.find('input[id=hon]:checked').val() ){
+                 $("#td1").html($("input[name='f1-ingresos']").val()*10);
+            }else if(parent_fieldset.find('input[id=pen]:checked').val() ){
+                $("#td1").html($("input[name='f1-ingresos']").val()*10)
+            }else{
+                $("#td1").html($("input[name='f1-ingresos']").val()*9)
+            }
+
+        }
+
     	// fields validation
     	
     	if( next_step ) {
@@ -91,7 +142,9 @@ jQuery(document).ready(function() {
     	// navigation steps / progress steps
     	var current_active_step = $(this).parents('.f1').find('.f1-step.active');
     	var progress_line = $(this).parents('.f1').find('.f1-progress-line');
-    	
+    	$('input[name=tipo]').parent().removeClass('input-error');
+        $('input[name=empleo]').parent().removeClass('input-error');
+        $('input[name=ingresos]').parent().removeClass('input-error');
     	$(this).parents('fieldset').fadeOut(400, function() {
     		// change icons
     		current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');

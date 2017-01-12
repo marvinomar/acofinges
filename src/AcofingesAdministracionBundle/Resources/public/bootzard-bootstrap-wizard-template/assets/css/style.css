@@ -40,6 +40,47 @@ h4 {
 
 img { max-width: 100%; }
 
+/*Agregados */
+
+label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-right: 15px;
+  font-size: 16px;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+label:before {
+  content: "";
+  display: inline-block;
+ 
+  width: 16px;
+  height: 16px;
+ 
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 1px;
+  background-color: #f35b3f;
+  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+}
+.radio label:before {
+  border-radius: 8px;
+}
+
+input[type=radio]:checked + label:before {
+    content: "\2022";
+    color: #f3f3f3;
+    font-size: 30px;
+    text-align: center;
+    line-height: 18px;
+}
 ::-moz-selection { background: #f35b3f; color: #fff; text-shadow: none; }
 ::selection { background: #f35b3f; color: #fff; text-shadow: none; }
 
@@ -108,7 +149,7 @@ ul.navbar-nav {
 .f1-progress { position: absolute; top: 24px; left: 0; width: 100%; height: 1px; background: #ddd; }
 .f1-progress-line { position: absolute; top: 0; left: 0; height: 1px; background: #f35b3f; }
 
-.f1-step { position: relative; float: left; width: 25%; padding: 0 5px; }
+.f1-step { position: relative; float: left; width: 20%; padding: 0 5px; }
 
 .f1-step-icon {
 	display: inline-block; width: 40px; height: 40px; margin-top: 4px; background: #ddd;
