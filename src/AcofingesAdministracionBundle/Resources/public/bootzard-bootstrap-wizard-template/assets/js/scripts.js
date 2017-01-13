@@ -40,9 +40,12 @@ jQuery(document).ready(function() {
     
     $('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea, .f1 input[type="radio"]').on('focus', function() {
     	$(this).removeClass('input-error');
-        $('input[name=tipo]').parent().removeClass('input-error');
     });
-    
+     $('.f1 input[type="radio"]').on('change', function() {
+         $('input[name=tipo]').parent().removeClass('input-error');
+         $('input[name=empleo]').parent().removeClass('input-error');
+         $('input[name=ingresos]').parent().removeClass('input-error');
+    });
     // next step
     $('.f1 .btn-next').on('click', function() {
     	var parent_fieldset = $(this).parents('fieldset');
@@ -74,6 +77,36 @@ jQuery(document).ready(function() {
      }
      if(current_active_step.attr('id')=='paso2'){
         /*Agregando validacion de edad*/
+        if ((parent_fieldset.find('input[id=f1-dui]').val()).length < 10 ) {
+            BootstrapDialog.show({
+                title: '<h4>Advertencia</h4>',
+                message: '<h5 class="text-danger">El número de DUI debe contener 9 dígitos</h5>',
+                type: BootstrapDialog.TYPE_DANGER,
+                buttons: [{
+                label: 'Ok',
+                cssClass: 'btn-danger btn-previous',
+                action: function(dialogItself){
+                    dialogItself.close();
+                }
+            }]
+            });
+            return false;
+        }
+        if ((parent_fieldset.find('input[id=f1-nit]').val()).length < 17 ) {
+            BootstrapDialog.show({
+                title: '<h4>Advertencia</h4>',
+                message: '<h5 class="text-danger">El número de NIT debe contener 14 dígitos</h5>',
+                type: BootstrapDialog.TYPE_DANGER,
+                buttons: [{
+                label: 'Ok',
+                cssClass: 'btn-danger btn-previous',
+                action: function(dialogItself){
+                    dialogItself.close();
+                }
+            }]
+            });
+            return false;
+        }
         if (parent_fieldset.find('input[id=f1-edad]').val()> 65 ) {
                 BootstrapDialog.show({
                 title: '<h4>Advertencia</h4>',
@@ -108,16 +141,17 @@ jQuery(document).ready(function() {
                 $('input[name=ingresos]').parent().removeClass('input-error');
             }
             /*Realizando cálculos*/
+            var valor = $("input[name='f1-ingresos']").val();
             if (parent_fieldset.find('input[id=sal]:checked').val() ) {
-                  $("#td1").html($("input[name='f1-ingresos']").val()*12);
-            }else if(parent_fieldset.find('input[id=hon]:checked').val() ){
-                 $("#td1").html($("input[name='f1-ingresos']").val()*10);
-            }else if(parent_fieldset.find('input[id=pen]:checked').val() ){
-                $("#td1").html($("input[name='f1-ingresos']").val()*10)
+                var monto =valor*12;
+                $("#td1").html(Math.round(monto*100)/100);
+            }else if(parent_fieldset.find('input[id=neg]:checked').val() ){
+                var monto =valor*9;
+                $("#td1").html(Math.round(monto*100)/100);
             }else{
-                $("#td1").html($("input[name='f1-ingresos']").val()*9)
+                var monto =valor*10;
+                $("#td1").html(Math.round(monto*100)/100);
             }
-
         }
 
     	// fields validation

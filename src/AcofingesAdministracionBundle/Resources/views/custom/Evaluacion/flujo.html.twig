@@ -231,7 +231,7 @@
                     $("input").unmask();
             });
             $("input[id$='f1-edad']").mask('00');
-            $("input[id$='f1-ingresos']").mask('000000');
+            $("input[id$='f1-ingresos']").mask('##0.00', {reverse: true});
             $("input[id$='f1-tiempo']").mask('000000');
             
          });
