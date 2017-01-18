@@ -155,7 +155,7 @@ jQuery(document).ready(function() {
         }
 
     	// fields validation
-    	
+
     	if( next_step ) {
     		parent_fieldset.fadeOut(400, function() {
     			// change icons
