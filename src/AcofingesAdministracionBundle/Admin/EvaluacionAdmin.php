@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 class EvaluacionAdmin extends Admin
 {
@@ -64,14 +65,26 @@ class EvaluacionAdmin extends Admin
     public function getTemplate($name) {
     switch ($name) {
         case 'edit':
-            return 'AcofingesAdministracionBundle:custom:Evaluacion/flujo.html.twig';
+            return 'AcofingesAdministracionBundle:custom:Evaluacion/flujo1.html.twig';
             break;
         case 'create':
-            return 'AcofingesAdministracionBundle:custom:Evaluacion/flujo.html.twig';
+            return 'AcofingesAdministracionBundle:custom:Evaluacion/flujo1.html.twig';
+            break;
+        case 'flujo1':
+            return 'AcofingesAdministracionBundle:custom:Evaluacion/flujo1.html.twig';
+            break;
+        case 'flujo2':
+            return 'AcofingesAdministracionBundle:custom:Evaluacion/flujo2.html.twig';
             break;
         default:
             return parent::getTemplate($name);
             break;
     }
 }
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->add('flujo1', 'flujo1');
+        $collection->add('flujo2', 'flujo2');
+    }
+
 }

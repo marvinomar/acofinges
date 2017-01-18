@@ -335,6 +335,37 @@ class EvaluacionAdminController extends CRUDController
         ), null);
     }
 
+        /**
+     * return the Response object associated to the list action
+     *
+     * @throws \Symfony\Component\Security\Core\Exception\AccessDeniedException
+     *
+     * @return Response
+     */
+    public function flujo1Action(Request $request)
+    {
+        // the key used to lookup the template
+        $templateKey = 'flujo1';
+        return $this->render($this->admin->getTemplate($templateKey), array(
+            'action' => 'flujo2',
+        ), null);
+    }
+    /**
+     * return the Response object associated to the list action
+     *
+     * @throws \Symfony\Component\Security\Core\Exception\AccessDeniedException
+     *
+     * @return Response
+     */
+    public function flujo2Action(Request $request)
+    {
+        // the key used to lookup the template
+        $templateKey = 'flujo2';
+        return $this->render($this->admin->getTemplate($templateKey), array(
+            'action' => 'flujo2',
+        ), null);
+    }
+
 }
 
 

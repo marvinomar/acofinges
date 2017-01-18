@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Flujo2</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/bootstrap/css/bootstrap.min.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/font-awesome/css/font-awesome.min.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/css/form-elements.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/css/style2.css') }}" type="text/css" media="all" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+
+    <body>
+        <!-- Top content -->
+        <div class="top-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
+                    	<form role="form" action="" method="post" class="f1">
+
+                    		<h3>Datos para credito</h3>
+                    		<p>Por favor llenar los campos de cada formulario</p>
+                    		<div class="f1-steps">
+                    			<div class="f1-progress">
+                    			    <div class="f1-progress-line" data-now-value="8.33" data-number-of-steps="6" style="width: 8.33%;"></div>
+                    			</div>
+                    			<div class="f1-step active" id='paso1'>
+                    				<div class="f1-step-icon"><i class="fa fa-briefcase"></i></div>
+                    				<p>Tipo de credito</p>
+                    			</div>
+                    			<div class="f1-step" id='paso2'>
+                    				<div class="f1-step-icon"><i class="fa fa-archive"></i></div>
+                    				<p>Datos Generales</p>
+                    			</div>
+                    		    <div class="f1-step" id='paso3'>
+                    				<div class="f1-step-icon"><i class="fa fa-industry"></i></div>
+                    				<p>Empleo</p>
+                    			</div>
+                                <div class="f1-step" id='paso4'>
+                                    <div class="f1-step-icon"><i class="fa fa-money"></i></div>
+                                    <p>Ingresos</p>
+                                </div>
+                                <div class="f1-step" id='paso5'>
+                                    <div class="f1-step-icon"><i class="fa fa-user-plus"></i></div>
+                                    <p>Codeudor solidario</p>
+                                </div>
+                                <div class="f1-step" id='paso6'>
+                                    <div class="f1-step-icon"><i class="fa fa-calculator"></i></div>
+                                    <p>Resultados</p>
+                                </div>
+                    		</div>
+                    		<fieldset>
+                    		    <h4>Seleccione el Tipo de credito:</h4>
+                                <div class="radio form-group">
+                                <input type="radio" id ="tipo1" name="tipo">
+                                <label for="tipo1">Compra de casa</label>
+                                </div>
+                                <div class="radio form-group">
+                                  <input type="radio" id ="tipo2" name="tipo">
+                                  <label for="tipo2">Traslado de saldo de tu casa</label>
+                                </div>
+                                <div class="radio form-group">
+                                  <input type="radio" id ="tipo3" name="tipo">
+                                  <label for="tipo3">Hipotecario multidestino</label>
+                                </div>
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-next" id ="AdelanteTipoCredito">Adelante</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <h4>Ingrese sus Datos Generales:</h4>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-nombre">Nombres</label>
+                                    <input type="text" name="f1-nombre" placeholder="Nombres..." class="f1-nombre form-control" id="f1-nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-apellidos">Apellidos</label>
+                                    <input type="text" name="f1-apellidos" placeholder="Apellidos..." class="f1-apellidos form-control" id="f1-apellidos">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-telefono">Teléfono</label>
+                                    <input type="text" name="f1-telefono" placeholder="Teléfono..." class="f1-apellidos form-control" id="f1-telefono">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-correo">Correo</label>
+                                    <input type="text" name="f1-correo" placeholder="Correo..." class="f1-correo form-control" id="f1-correo">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-dui">DUI</label>
+                                    <input type="text" name="f1-dui" placeholder="Numero de DUI..." class="f1-dui form-control" id="f1-dui">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-nit">NIT</label>
+                                    <input type="text" name="f1-nit" placeholder="Numero de NIT..." class="f1-nit form-control" id="f1-nit">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-edad">edad</label>
+                                    <input type="text" name="f1-edad" placeholder="Edad..." 
+                                    class="f1-edad form-control" id="f1-edad">
+                                </div>
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Atrás</button>
+                                    <button type="button" class="btn btn-next">Adelante</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <h4>Ingrese informacion de su empleo:</h4>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-empleo">Lugar de trabajo</label>
+                                    <input type="text" name="f1-empleo" placeholder="Lugar de trabajo..." class="f1-empleo form-control" id="f1-empleo"></div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-tiempo">Tiempo Laboral</label>
+                                    <input type="text" name="f1-tiempo" placeholder="Tiempo Laboral en meses..." class="f1-tiempo form-control" id="f1-tiempo"></div>    
+                                <div class="radio">
+                                <input type="radio" id ='gob' name="empleo">
+                                <label for="gob">Gobierno</label>
+                                </div>
+                                <div class="radio form-group">
+                                  <input type="radio" id='priv' name="empleo">
+                                  <label for="priv">Empresa Privada</label>
+                                </div>
+                                <div class="radio form-group">
+                                  <input type="radio" id='negP' name="empleo">
+                                  <label for="negP">Negocio Propio</label>
+                                </div>
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Atrás</button>
+                                    <button type="button" class="btn btn-next">Adelante</button>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <h4>Detalle sus ingresos:</h4>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-ingresos">Ingresos Mensuales</label>
+                                    <input type="text" name="f1-ingresos" placeholder="Ingresos Mensuales($)..." class="f1-ingresos form-control" id="f1-ingresos"></div> 
+                                <div class="radio">
+                                <input type="radio" id='sal' name="ingresos">
+                                <label for="sal">Ingresos por salario</label>
+                                </div>
+                                <div class="radio">
+                                  <input type="radio" id='hon' name="ingresos">
+                                  <label for="hon">Ingresos por honorarios</label>
+                                </div>
+                                <div class="radio">
+                                  <input type="radio" id='pen' name="ingresos">
+                                  <label for="pen">Ingresos por pension</label>
+                                </div>
+                                <div class="radio">
+                                  <input type="radio" id='neg' name="ingresos">
+                                  <label for="neg">Ingresos por negocio</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-ingresos">Otros ingresos</label>
+                                    <input type="text" name="f1-otros" placeholder="Otros ingresos con comprobante($)..." class="f1-otros form-control" id="f1-otros"></div>
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Atrás</button>
+                                    <button type="button" class="btn btn-next">Adelante</button>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <h4>Posee un codeudor:</h4>
+                                <div class="radio">
+                                <input type="radio" id='si' name="codeudor">
+                                <label for="si">Si</label>
+                                </div>
+                                <div class="radio">
+                                  <input type="radio" id='no' name="codeudor">
+                                  <label for="no">No</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-ingresos">Otros ingresos</label>
+                                    <input type="text" name="f1-otros" placeholder="Otros ingresos con comprobante($)..." class="f1-otros form-control" id="f1-otros"></div>
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Atrás</button>
+                                    <button type="button" class="btn btn-next">Adelante</button>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="panel panel-danger">
+                                      <!-- Default panel contents -->
+                                      <div class="panel-heading">Resultados</div>
+
+                                      <!-- Table -->
+                                      <table class="table">
+                                         <tbody>
+                                              <tr>
+                                                <td>Monto($)</td>
+                                                <td id='td1'>0</td>
+                                              </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Atrás</button>
+                                    <button type="submit" class="btn btn-submit">Enviar</button>
+                                </div>
+                            </fieldset>
+                    	</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Javascript -->
+        <script src="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/js/jquery-1.11.1.min.js') }}" type="text/javascript"></script> <!--Da clavo-->
+        <script src="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/js/jquery.backstretch.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/js/retina-1.1.0.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/acofingesadministracion/bootzard-bootstrap-wizard-template/assets/js/scripts2.js') }}" type="text/javascript"></script><!--clavo-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/js/bootstrap-dialog.min.js"></script>   
+        <script src="{{ asset('bundles/acofingesadministracion/js/jQuery-Mask-Plugin/jquery.mask.min.js') }}" type="text/javascript"></script>
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+                <!--Logica Javascript-->
+        <script type="text/javascript">
+            $(document).ready(function(){
+            /*$("#AdelanteTipoCredito").click(function(){
+            if($("#tipo1").attr('checked', false) && $("#tipo2").attr('checked', false))
+            {
+              BootstrapDialog.show({
+                title: '<h4>Advertencia</h4>',
+                message: '<h5 class="text-danger">Debe de seleccionar el tipo de credito</h5>',
+                type: BootstrapDialog.TYPE_DANGER,
+                buttons: [{
+                label: 'Ok',
+                cssClass: 'btn-danger btn-previous',
+                action: function(dialogItself){
+                    dialogItself.close();
+                }
+            }]
+              });
+            }
+
+         });*/
+            $("input[id$='f1-dui']").mask('00000000-0');
+               $('form').submit(function(e){
+                    $("input").unmask();
+            });
+            $("input[id$='f1-nit']").mask('0000-000000-000-0');
+               $('form').submit(function(e){
+                    $("input").unmask();
+            });
+            $("input[id$='f1-telefono']").mask('0000-0000');
+               $('form').submit(function(e){
+                    $("input").unmask();
+            });
+            $("input[id$='f1-edad']").mask('00');
+            $("input[id$='f1-ingresos']").mask('##0.00', {reverse: true});
+            $("input[id$='f1-tiempo']").mask('000000');
+            
+         });
+        </script>
+    </body>
+
+</html>

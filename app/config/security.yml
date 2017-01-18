@@ -71,6 +71,8 @@ security:
         - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/acofingesadministracion/evaluacion/create, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/acofingesadministracion/evaluacion/flujo1, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/acofingesadministracion/evaluacion/flujo2, role: IS_AUTHENTICATED_ANONYMOUSLY }
  
         # Secured part of the site
         # This config requires being logged for the whole site and having the admin role for the admin part.
