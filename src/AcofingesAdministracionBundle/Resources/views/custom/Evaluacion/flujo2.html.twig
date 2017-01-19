@@ -38,7 +38,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
-                    	<form role="form" action="" method="post" class="f1">
+                    	<form role="form" action="{{ path("admin_acofingesadministracion_evaluacion_create") }}" method="post" class="f1">
 
                     		<h3>Datos para credito</h3>
                     		<p>Por favor llenar los campos de cada formulario</p>
@@ -158,23 +158,23 @@
                                     <label class="sr-only" for="f1-ingresos">Ingresos Mensuales</label>
                                     <input type="text" name="f1-ingresos" placeholder="Ingresos Mensuales($)..." class="f1-ingresos form-control" id="f1-ingresos"></div> 
                                 <div class="radio">
-                                <input type="radio" id='sal' name="ingresos">
+                                <input type="radio" id='sal' name="ingresos" value='sal'>
                                 <label for="sal">Ingresos por salario</label>
                                 </div>
                                 <div class="radio">
-                                  <input type="radio" id='hon' name="ingresos">
+                                  <input type="radio" id='hon' name="ingresos" value='hon'>
                                   <label for="hon">Ingresos por honorarios</label>
                                 </div>
                                 <div class="radio">
-                                  <input type="radio" id='pen' name="ingresos">
+                                  <input type="radio" id='pen' name="ingresos" value='pen'>
                                   <label for="pen">Ingresos por pension</label>
                                 </div>
                                 <div class="radio">
-                                  <input type="radio" id='neg' name="ingresos">
+                                  <input type="radio" id='neg' name="ingresos" value='neg'>
                                   <label for="neg">Ingresos por negocio</label>
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="f1-ingresos">Otros ingresos</label>
+                                    <label class="sr-only" for="f1-otros">Otros ingresos</label>
                                     <input type="text" name="f1-otros" placeholder="Otros ingresos con comprobante($)..." class="f1-otros form-control" id="f1-otros"></div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Atrás</button>
@@ -184,16 +184,19 @@
                             <fieldset>
                                 <h4>Posee un codeudor:</h4>
                                 <div class="radio">
-                                <input type="radio" id='si' name="codeudor">
+                                <input type="radio" id='si' name="codeudor" value='si'>
                                 <label for="si">Si</label>
                                 </div>
                                 <div class="radio">
-                                  <input type="radio" id='no' name="codeudor">
+                                  <input type="radio" id='no' name="codeudor" value='no'>
                                   <label for="no">No</label>
                                 </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-ingresos">Otros ingresos</label>
-                                    <input type="text" name="f1-otros" placeholder="Otros ingresos con comprobante($)..." class="f1-otros form-control" id="f1-otros"></div>
+                                <div class="form-group" id='parentesco' style="display:none;">
+                                    <label class="sr-only" for="f1-parentesco">Parentesco</label>
+                                    <input type="text" name="f1-parentesco" placeholder="Parentesco(Cónyugue, Padre, Madre, Hermano, Hijo, Otro)..." class="f1-parentesco form-control" id="f1-parentesco"></div>
+                                <div class="form-group" id='ingresosCodeudor' style="display:none;">
+                                    <label class="sr-only" for="f1-ingresosCodeudor">Ingresos del codeudor</label>
+                                    <input type="text" name="f1-ingresosCodeudor" placeholder="Ingresos del codeudor($)..." class="f1-ingresosCodeudor form-control" id="f1-ingresosCodeudor"></div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Atrás</button>
                                     <button type="button" class="btn btn-next">Adelante</button>
@@ -241,24 +244,6 @@
                 <!--Logica Javascript-->
         <script type="text/javascript">
             $(document).ready(function(){
-            /*$("#AdelanteTipoCredito").click(function(){
-            if($("#tipo1").attr('checked', false) && $("#tipo2").attr('checked', false))
-            {
-              BootstrapDialog.show({
-                title: '<h4>Advertencia</h4>',
-                message: '<h5 class="text-danger">Debe de seleccionar el tipo de credito</h5>',
-                type: BootstrapDialog.TYPE_DANGER,
-                buttons: [{
-                label: 'Ok',
-                cssClass: 'btn-danger btn-previous',
-                action: function(dialogItself){
-                    dialogItself.close();
-                }
-            }]
-              });
-            }
-
-         });*/
             $("input[id$='f1-dui']").mask('00000000-0');
                $('form').submit(function(e){
                     $("input").unmask();
@@ -272,7 +257,9 @@
                     $("input").unmask();
             });
             $("input[id$='f1-edad']").mask('00');
+            $("input[id$='f1-ingresosCodeudor']").mask('##0.00', {reverse: true});
             $("input[id$='f1-ingresos']").mask('##0.00', {reverse: true});
+            $("input[id$='f1-otros']").mask('##0.00', {reverse: true});
             $("input[id$='f1-tiempo']").mask('000000');
             
          });
